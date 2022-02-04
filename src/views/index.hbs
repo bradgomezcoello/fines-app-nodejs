@@ -1,0 +1,64 @@
+<section class="relative mt-8 bg-blueGray-50">
+<div class="w-full mb-12 px-4">  
+  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg 
+  bg-blue-900 text-white">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1 ">
+          <h3 style="text-align:center; font-size: 1.5em">Loaner Equipment and Fines</h3>
+        </div>
+      </div>
+    </div>
+    <div class="block w-full overflow-x-auto ">
+      <table class="items-center w-full bg-transparent border-collapse">
+        <thead>
+          <tr>
+            <th class="px-8 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">User</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">Item</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">Start Date</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">End Date</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">Delivery Date</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">Status</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-green-800 text-orange-300 border-green-700">Fine</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {{#if allborrowers}}
+                {{#each allborrowers}}
+                    <tr>
+                        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                            <span class="ml-3 font-bold text-white"> {{loan.user}} </span>
+                        </th>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{loan.item}}</td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex">
+                                {{loan.startDate}}
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex items-center">
+                                <span class="mr-2">{{loan.endDate}}</span>
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex items-center">
+                                <span class="mr-2">{{loan.deliveryDate}}</span>
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        {{loan.state}}</td>                                                
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex items-center">
+                                <span class="mr-2">$ {{loan.fine}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            {{/if}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
